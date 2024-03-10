@@ -20,10 +20,10 @@ def read_root():
 def get_active_players(): 
     return get_players()
 
-@app.get("/get_player_info")
-def get_player_info():
-    player_info =  playergamelog.PlayerGameLog(player_id='203999',season='2023-2024',season_type_all_star='Regular Season')
-    return player_info.get_dict()
+# @app.get("/get_player_info")
+# def get_player_info():
+#     player_info =  playergamelog.PlayerGameLog(player_id='203999',season='2023-2024',season_type_all_star='Regular Season')
+#     return player_info.get_dict()
 
 @app.get("/get_player/{player_id}")
 def get_player(player_id):
