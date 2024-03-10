@@ -14,10 +14,10 @@ app = FastAPI()
 
 @app.get("/")
 def read_root():
-    career = playercareerstats.PlayerCareerStats(player_id='203999') 
+    # career = playercareerstats.PlayerCareerStats(player_id='203999') 
 
-    return career.get_dict()
- # return("Hello world")
+    # return career.get_dict()
+  return("Hello world")
 
 @app.get("/get_all_active_players")
 def get_active_players():
