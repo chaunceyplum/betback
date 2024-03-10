@@ -26,6 +26,6 @@ def get_active_players():
 #     return player_info.get_dict()
 
 @app.get("/get_player/{player_id}")
-def get_player(player_id):
+def get_player(player_id:int):
     player_info = playercareerstats.PlayerCareerStats(player_id=player_id)
     return player_info.get_dict()
