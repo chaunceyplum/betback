@@ -36,9 +36,10 @@ async def get_player_game_log_info():
     player_info = await playergamelog.PlayerGameLog(player_id='203999',season='2023-2024',season_type_all_star='Regular Season')
     return player_info.get_dict()
 
-# @app.get("/items/{item_id}")
-# def read_item(item_id: int, q: Union[str, None] = None):
-#     return {"item_id": item_id, "q": q}
+@app.get("/get_player/{player_id}")
+async def read_item(player_id):
+    player_info = await playergamelog.PlayerCarrerStats(player_id=player_id)
+    return player_info.get_dict()
 
 # Nikola Jokić
 # career = playercareerstats.PlayerCareerStats(player_id='203999') 
