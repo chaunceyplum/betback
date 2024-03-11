@@ -19,7 +19,8 @@ def read_root():
 
 @app.get("/get_all_active_players")
 def get_active_players(): 
-    return get_players()
+    data = get_players()
+    return {"data":data}
 
 # @app.get("/get_player_info")
 # def get_player_info():
