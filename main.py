@@ -9,7 +9,7 @@ from typing import Union
 import json
 from fastapi import FastAPI
 from datetime import datetime, timedelta
-
+import json
 app = FastAPI()
 
 
@@ -20,7 +20,7 @@ def read_root():
 @app.get("/get_all_active_players")
 def get_active_players(): 
     data = get_players()
-    return {"data":data}
+    return json.dumps({"data":data})
 
 # @app.get("/get_player_info")
 # def get_player_info():
