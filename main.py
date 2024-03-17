@@ -38,7 +38,7 @@ async def get_all_active_players():
     # prettify JSON
     # data = json.dumps(allPlayers, sort_keys=True, indent=4)
 
-    return str(allPlayers)
+    return {"data": str(allPlayers)}
 
 # @app.get("/get_player_info")
 # def get_player_info():
