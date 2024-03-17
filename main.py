@@ -7,6 +7,7 @@ from nba_api.stats.static.players import get_players
 from nba_api.stats.static import players
 from typing import Union
 import json
+import requests
 from fastapi import FastAPI
 from datetime import datetime, timedelta
 import json
@@ -18,9 +19,26 @@ def read_root():
   return("Hello world")
 
 @app.get("/get_all_active_players")
-def get_active_players(): 
-    data = get_players()
-    return json.dumps({"data":data})
+async def get_all_active_players():
+    allPlayers = []
+    # r = requests.get('https://nba-stats-db.herokuapp.com/api/playerdata/season/2023/').json
+    total_pages= 8
+    # print(r)
+    for page in range(1, total_pages):
+
+        url = "https://nba-stats-db.herokuapp.com/api/playerdata/season/2023/?page="+str(page)              
+        response = requests.get(url=url ).json()
+        # print(response["results"])   
+        pagey = response["results"]
+        for record in pagey:
+            allPlayers.append(record)
+        # allPlayers.append(response["results"])       
+        page += 1
+
+    # prettify JSON
+    # data = json.dumps(allPlayers, sort_keys=True, indent=4)
+
+    return str(allPlayers)
 
 # @app.get("/get_player_info")
 # def get_player_info():
