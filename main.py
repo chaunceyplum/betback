@@ -16,7 +16,7 @@ app = FastAPI()
 
 @app.get("/")
 def read_root():
-  return("Hello world")
+  return("Welcome to the betting API")
 
 @app.get("/get_all_active_players")
 async def get_all_active_players():
